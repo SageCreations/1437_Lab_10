@@ -49,36 +49,36 @@ int main() {
   line7.equation();
   cout << endl;
 
-  if (line1.parallel(line2))
+  if (line1.operator||(line2))
     cout << "line1 and line2 are parallel." << endl;
   else
     cout << "line1 and line2 are not parallel." << endl;
 
   line1.pointOfIntersection(line2);
 
-  if (line1.parallel(line3))
+  if (line1.operator||(line3))
     cout << "line1 and line3 are parallel." << endl;
   else
     cout << "line1 and line3 are not parallel." << endl;
 
-  if (line1.perpendicular(line4))
+  if (line1.operator&&(line4))
     cout << "line1 and line4 are perpendicular." << endl;
   else
     cout << "line1 and line4 are not perpendicular." << endl;
 
-  if (line5.verticalLine())
+  if (line5.operator+(line5))
     cout << "line5 is a vertical line." << endl;
   else
     cout << "line5 is not a vertical line." << endl;
 
-  if (line6.horizontalLine())
+  if (line6.operator-(line6))
     cout << "line6 is a horizontal line." << endl;
   else
     cout << "line6 is not a horizontal line." << endl;
 
   line5.pointOfIntersection(line6);
 
-  if (line1.equalLines(line7))
+  if (line1.operator==(line7))
     cout << "line1 and line 7 are equal." << endl;
   else
     cout << "line1 and line 7 are not equal." << endl;

@@ -94,11 +94,11 @@ bool lineType::perpendicular(lineType otherLine) const {
       return true;
     else
       return false;
-  } else if ((xCoeff == 0 && otherLine.yCoeff == 0) ||
-             (yCoeff == 0 && otherLine.xCoeff == 0))
-    return true;
-  else
-    false;
+  } else if ((xCoeff == 0 && otherLine.yCoeff == 0) || (yCoeff == 0 && otherLine.xCoeff == 0)) {
+      return true;
+  } else {
+      return false;
+  }
 }
 
 void lineType::pointOfIntersection(lineType otherLine) {
@@ -118,3 +118,51 @@ void lineType::pointOfIntersection(lineType otherLine) {
 }
 
 lineType::lineType(double a, double b, double c) { setLine(a, b, c); }
+
+std::ostream& operator << (std::ostream& stream, const lineType& line)
+{
+  stream << line.getXCoefficient() << ", " << line.getYCoefficient()
+         << ", " << line.getCOnstantTerm() << endl;
+  return stream;
+}
+
+std::istream& operator >> (std::istream& stream, const lineType& line)
+{
+  std::cout << "Enter a: ";
+  stream >> line.xCoeff;
+  std::cout << "Enter b: ";
+  stream >> line.yCoeff;
+  std::cout << "Enter c: ";
+  stream >> line.constTerm;
+  return stream;
+}
+
+void lineType::operator = (const lineType& line)
+{
+  *this = line;
+}
+
+bool lineType::operator + (const lineType& line)
+{
+  return line.verticalLine();
+}
+
+bool lineType::operator - (const lineType& line)
+{
+  return line.horizontalLine();
+}
+
+bool lineType::operator == (const lineType& line)
+{
+  return this->equalLines(line);
+}
+
+bool lineType::operator || (const lineType& line)
+{
+  return this->parallel(line);
+}
+
+bool lineType::operator && (const lineType& line)
+{
+  return this->perpendicular(line);
+}

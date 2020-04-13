@@ -41,6 +41,35 @@ class lineType {
   lineType(double a = 0, double b = 0, double c = 0);
   // Constructor
 
+  friend std::ostream& operator << (std::ostream& stream, const lineType& line);
+  // Overloads the stream insertion operator, <<, for smooth output.
+  friend std::istream& operator >> (std::istream& stream, const lineType& line);
+  // Overloads the stream extraction operator, >>, for easy input. 
+  // (The line ax + by + c is input as (a, b, c).)
+
+  void operator = (const lineType& line);
+  // Overloads the assignment operator = to copy a line into another line.
+
+  bool operator + (const lineType& line);
+  // Overloads the unary operator +, as a member function, 
+  // so that it returns true if a line is vertical; false otherwise.
+
+  bool operator - (const lineType& line);
+  // Overloads the unary operator -, as a member function, 
+  // so that it returns true if a line is horizontal; false otherwise.
+
+  bool operator == (const lineType& line);
+  // Overloads the operator ==, as a member function, 
+  // so that it returns true if two lines are equal; false otherwise.
+
+  bool operator || (const lineType& line);
+  // Overloads the operator ||, as a member function, 
+  // so that it returns true if two lines are parallel; false otherwise.
+
+  bool operator && (const lineType& line);
+  // Overloads the operator &&, as a member function, 
+  // so that it returns true if two lines are perpendicular; false otherwise.
+
  private:
   double xCoeff;
   double yCoeff;
