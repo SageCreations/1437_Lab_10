@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "LineType.h"
+#include "LineType.hpp"
 
 using namespace std;
 
